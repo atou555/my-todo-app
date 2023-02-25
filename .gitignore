@@ -1,7 +1,12 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
+front/node_modules
+back/node_modules
+api/node_modules
+api/package-lock.json
+front/package-lock.json
+front/src/reportWebVitals.js
 /.pnp
 .pnp.js
 

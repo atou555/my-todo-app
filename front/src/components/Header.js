@@ -1,14 +1,16 @@
 import React from 'react';
-import logo from '../images/logo.png';
 import Navbar from './Navbar';
+import logo from '../images/logo.png';
 
-function Header() {
+const Header = () => {
   return (
-    <header className="header">
-      <img className="header__logo" src={logo} alt="logo" />
+    <header>
+      <div className="logo">
+        <img src={logo} alt="Logo de l'application" />
+      </div>
       <Navbar />
     </header>
   );
-}
+};
 
 export default Header;

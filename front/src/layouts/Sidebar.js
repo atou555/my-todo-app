@@ -1,42 +1,48 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faListAlt, faPlusSquare } from '@fortawesome/free-solid-svg-icons';
-import logo from '../images/logo.png';
-import '../styles/index.css';
+import CategoryList from '../components/CategoryList';
+import AddCategoryForm from '../components/AddCategoryForm';
 
-function Sidebar() {
+const Sidebar = ({ categories, handleAddCategory, handleDeleteCategory }) => {
   return (
     <div className="sidebar">
-      <div className="logo-container">
-        <img src={logo} alt="logo" />
-      </div>
-      <div className="nav-container">
-        <ul>
-          <li>
-            <Link to="/" className="nav-link">
-              <FontAwesomeIcon icon={faListAlt} /> Categories
+      <Link to="/" className="sidebar__logo">
+        <img src="/logo.png" alt="Logo" />
+        <h1>My Todo App</h1>
+      </Link>
+      <nav className="sidebar__nav">
+        <ul className="sidebar__list">
+          <li className="sidebar__item">
+            <Link to="/" className="sidebar__link">
+              Tâches
             </Link>
           </li>
-          <li>
-            <Link to="/tasks" className="nav-link">
-              <FontAwesomeIcon icon={faListAlt} /> Tasks
+          <li className="sidebar__item">
+            <Link to="/ajouter-tache" className="sidebar__link">
+              Ajouter une tâche
             </Link>
           </li>
-          <li>
-            <Link to="/categories/new" className="nav-link">
-              <FontAwesomeIcon icon={faPlusSquare} /> New Category
+          <li className="sidebar__item">
+            <Link to="/categories" className="sidebar__link">
+              Catégories
             </Link>
           </li>
-          <li>
-            <Link to="/tasks/new" className="nav-link">
-              <FontAwesomeIcon icon={faPlusSquare} /> New Task
+          <li className="sidebar__item">
+            <Link to="/ajouter-categorie" className="sidebar__link">
+              Ajouter une catégorie
+            </Link>
+          </li>
+          <li className="sidebar__item">
+            <Link to="/meteo" className="sidebar__link">
+              Météo
             </Link>
           </li>
         </ul>
-      </div>
+      </nav>
+      <CategoryList categories={categories} handleDeleteCategory={handleDeleteCategory} />
+      <AddCategoryForm handleAddCategory={handleAddCategory} />
     </div>
   );
-}
+};
 
 export default Sidebar;
